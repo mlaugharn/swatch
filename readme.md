@@ -1,5 +1,5 @@
-Input: ![Oranges picture]('/sample.jpg')
-Output: ![Oranges screenshot]('/screenshot.jpg')
+Input: ![Oranges picture](/sample.jpg)
+Output: ![Oranges screenshot](/screenshot.jpg)
 
     usage: swatch.py [-h] [--light] [-r R] [-n N] [-c C] [--unique] image
     
