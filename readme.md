@@ -1,3 +1,6 @@
+Input: ![Oranges picture]('/sample.jpg')
+Output: ![Oranges screenshot]('/screenshot.jpg')
+
     usage: swatch.py [-h] [--light] [-r R] [-n N] [-c C] [--unique] image
     
     A tool to generate Textmate/Sublime Text themes from images.
