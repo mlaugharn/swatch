@@ -83,7 +83,7 @@ if __name__ == '__main__':
     parser.add_argument("--light", action="store_true", default=False, help="Switch to light-background color scheme.")
     parser.add_argument("-r", action="store", type=int, default=64, help="Reduction of RGB colors. A reduction of 64 rounds RGB values to the nearest multiple of 64.")
     parser.add_argument("-n", action="store", type=int, default=10, help="Number of reduced colors to choose from.")
-    parser.add_argument("-c", action="store", type=int, default=128, help="Minimum contrast between background and colors. 256 is the contrast between black and white.")
+    parser.add_argument("-c", action="store", type=int, default=128, help="Minimum contrast between background and colors. 255 is the contrast between black and white.")
     parser.add_argument("--unique", action="store_true", default=False, help="Use each color only once.")
     args = parser.parse_args()
     template = 'tomorrow-dark-base'
