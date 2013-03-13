@@ -7,17 +7,13 @@ def trunctriple(triple, resolution):
 
 
 def tally_colors(image, resolution):
-    if resolution == 1:
-        return output
-    if resolution < 1:
-        raise ValueError("-r cannot be less than 1.")
     output = {}
     height = len(image)
     width = len(image[0])
     for y in range(height):
         for x in range(width):
             # no alpha values please
-            pixel = tuple(trunctriple(image[y][x], resolution))[:3]
+            pixel = tuple(trunctriple(image[y][x][:3], resolution))
             if pixel in output:
                 output[pixel] += 1
             else:
@@ -36,7 +32,7 @@ def max_n_times(dictionary, n):
     tempdict = dictionary.copy()
     for _ in range(n):
         if len(tempdict) == 0:
-            raise IndexError("There aren't " + str(numColors) + " reduced colors in the specified image. Reduce -n or increase -r.")
+            raise IndexError("There aren't " + str(numColors) + " reduced colors in the specified image. Reduce -n and/or -r.")
         key = max_key(tempdict)
         output.append(key)
         tempdict.pop(key)
@@ -93,6 +89,7 @@ if __name__ == '__main__':
         background = (255, 255, 255)
     print("Attempting to read image...")
     imageArray = mahotas.imread(args.image).astype('uint8').tolist()
+    # imageArray = mahotas.imread(args.image).astype('uint8').tolist()
     print("Image read. Attempting to reduce and tally colors...")
     # imageArray = mahotas.imresize(image, 1).tolist()
     talliedColors = tally_colors(imageArray, int(args.r))
